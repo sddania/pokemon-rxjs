@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {PokemonListService} from "./pokemon-list.service";
+import {PokemonListComponentStore} from "./pokemon-list.component-store";
 import {MatPaginatorModule, PageEvent} from "@angular/material/paginator";
 import {CommonModule} from "@angular/common";
 import {MatTableModule} from "@angular/material/table";
@@ -15,7 +15,7 @@ import {MatTableModule} from "@angular/material/table";
     MatPaginatorModule,
   ],
   providers:[
-    PokemonListService
+    PokemonListComponentStore
   ]
 })
 export class PokemonListComponent {
@@ -25,13 +25,13 @@ export class PokemonListComponent {
     public displayedColumns: string[] = ['name'];
 
     constructor(
-      private pokemonListService: PokemonListService
+      private pokemonListService: PokemonListComponentStore
     ) {
-      this.pokemonListService.getPokemonList$.next({offset: 0, limit: 20})
+      this.pokemonListService.getPokemonList({offset: 0, limit: 20})
     }
 
   setPage({pageIndex, pageSize }: PageEvent) {
-    this.pokemonListService.getPokemonList$.next({
+    this.pokemonListService.getPokemonList({
       offset: pageIndex * pageSize,
       limit: pageSize})
   }

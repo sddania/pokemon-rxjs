@@ -1,6 +1,6 @@
 import {NamedAPIResourceList} from "pokenode-ts";
 
 export interface PokemonState {
-  error: any,
+  error: unknown,
   pokemonList: NamedAPIResourceList
 }
