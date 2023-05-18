@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
-import {PokemonListService} from "../../services/pokemon-list.service";
-import {PageEvent} from "@angular/material/paginator";
+import {PokemonListService} from "./pokemon-list.service";
+import {MatPaginatorModule, PageEvent} from "@angular/material/paginator";
+import {CommonModule} from "@angular/common";
+import {MatTableModule} from "@angular/material/table";
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.scss']
+  styleUrls: ['./pokemon-list.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatPaginatorModule,
+  ],
+  providers:[
+    PokemonListService
+  ]
 })
 export class PokemonListComponent {
 

@@ -8,10 +8,10 @@ import {
   switchMap,
   withLatestFrom
 } from "rxjs";
-import {PokemonState} from "../models/pokemon.state";
 import {PokemonClient} from "pokenode-ts";
 import {fromPromise} from "rxjs/internal/observable/innerFrom";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+import {PokemonState} from "./pokemon.state";
 
 @Injectable()
 export class PokemonListService {

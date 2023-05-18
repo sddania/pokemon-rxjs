@@ -2,8 +2,6 @@
   pokemonList: (pokemonList$ | async)!,
   pokemonListCount: (pokemonListCount$ | async)!
 } as vm">
-  {{vm.pokemonList | json}}
-
   <ng-container *ngIf="vm.pokemonList.length > 0; else noData">
 
     <table mat-table [dataSource]="vm.pokemonList">
